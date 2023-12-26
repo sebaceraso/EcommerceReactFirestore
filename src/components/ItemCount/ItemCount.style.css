@@ -1,0 +1,27 @@
+.Item {
+  background-color: black;
+  width: 50%;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  color: antiquewhite;
+}
+
+.Item__etiquetas {
+  display: flex;
+  margin: 10px;
+  font-size: 30px;
+  width: auto;
+  height: 40px;
+  padding: 10px;
+  padding-top: 25px;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  width: 10%;
+  margin: 10px;
+  font-size: 1em;
+  border-radius: 5px;
+}
