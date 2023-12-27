@@ -4,6 +4,7 @@ import NavBar from './components/Navbar/Navbar';
 import ItemDetailComponent from './pages/ItemDetailComponent/ItemDetailComponent';
 import ItemListContainer from './pages/ItemListContainer/ItemListContainer';
 import { CartProvider } from './context/CartContext';
+import Cart from './components/Cart/Cart';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
               path="category/:categoryName"
               element={<ItemListContainer />}
             />
+            <Route path="cart" element={<Cart />} />
           </Routes>
         </div>
       </BrowserRouter>

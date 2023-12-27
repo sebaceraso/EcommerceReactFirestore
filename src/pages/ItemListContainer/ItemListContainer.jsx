@@ -1,7 +1,7 @@
 import './ItemListContainer.css';
 import ItemList from '../../components/ItemList/ItemList';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const ItemListContainer = () => {
   const [list, setList] = useState([]);
@@ -48,6 +48,7 @@ const ItemListContainer = () => {
 
   return (
     <>
+      <Link to="/cart">Carrito</Link>
       <ItemList lista={list} />
     </>
   );

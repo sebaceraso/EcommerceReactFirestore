@@ -22,8 +22,20 @@ export const CartProvider = ({ children }) => {
     setCart([]);
   };
 
+  const removeItem = (productId) => {
+    let nuevoArreglo = [];
+    cart.forEach((item) => {
+      if (item.id === productId) {
+        console.log(item);
+      } else {
+        nuevoArreglo.push(item);
+      }
+    });
+    setCart(nuevoArreglo);
+  };
+
   return (
-    <CartContext.Provider value={{ cart, addToCart }}>
+    <CartContext.Provider value={{ cart, addToCart, removeItem }}>
       {children}
     </CartContext.Provider>
     // El children engloba todo lo que es la App, y lo tengo que importar y usar en app
