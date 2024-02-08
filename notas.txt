@@ -1,3 +1,5 @@
 26/12
 Tengo que hacer la vista del carrito: video de tecnicas de render 1:50
-
+7/2
+Me queda ver el video del after de la clase 1 de firestore para completar el desafio
+Corregir el nombre de la tienda.

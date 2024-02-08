@@ -1,21 +1,33 @@
 import { useEffect, useState } from 'react';
 import ItemDetail from '../../components/ItemDetail/ItemDetail';
 import { useParams } from 'react-router-dom';
+import { getFirestore, doc, getDoc } from 'firebase/firestore';
 
 const ItemDetailComponent = () => {
   const { id } = useParams(); //Tomo el id del producto de la data
   const [product, setProduct] = useState([]);
+  const db = getFirestore();
+  const queryDoc = doc(db, 'items', id);
+  getDoc(queryDoc).then((resolve) => {
+    console.log(resolve.id);
+    console.log(resolve.data());
+  });
 
   useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/${id}`, {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
-    })
-      .then((response) => response.json())
-      .then((producto) => {
-        setProduct(producto);
-      });
+    setProduct();
   }, [id]);
+
+  //Esto es con fetch de FAKE STORE API-------------------------------
+  // useEffect(() => {
+  //   fetch(`https://fakestoreapi.com/products/${id}`, {
+  //     method: 'GET',
+  //     headers: { 'Content-Type': 'application/json' },
+  //   })
+  //     .then((response) => response.json())
+  //     .then((producto) => {
+  //       setProduct(producto);
+  //     });
+  // }, [id]);
 
   //Obtener un solo producto con un mockData local:
 
@@ -35,9 +47,7 @@ const ItemDetailComponent = () => {
   //     setProduct(foundProduct); // Set state with specific product
   //   });
   // });
-  return (
-    <div>{product && <ItemDetail item={product} />}</div>
-  );
+  return <div>{product && <ItemDetail item={product} />}</div>;
 };
 
 export default ItemDetailComponent;
